@@ -18,3 +18,4 @@ __pycache__/
 build/
 src/rvo2.cpp
 *.egg
+dist
