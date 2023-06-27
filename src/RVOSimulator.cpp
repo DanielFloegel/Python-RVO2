@@ -251,6 +251,11 @@ namespace RVO {
 	{
 		return agents_[agentNo]->timeHorizonObst_;
 	}
+	
+	float RVOSimulator::getAgentCollabCoeff(size_t agentNo) const
+	{
+		return agents_[agentNo]->collabCoeff_;
+	}
 
 	const Vector2 &RVOSimulator::getAgentVelocity(size_t agentNo) const
 	{
@@ -355,6 +360,11 @@ namespace RVO {
 	void RVOSimulator::setAgentTimeHorizonObst(size_t agentNo, float timeHorizonObst)
 	{
 		agents_[agentNo]->timeHorizonObst_ = timeHorizonObst;
+	}
+
+	void RVOSimulator::setAgentCollabCoeff(size_t agentNo, float collabCoeff)
+	{
+		agents_[agentNo]->collabCoeff_ = collabCoeff;
 	}
 
 	void RVOSimulator::setAgentVelocity(size_t agentNo, const Vector2 &velocity)
