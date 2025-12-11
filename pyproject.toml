@@ -1,5 +1,42 @@
-include CMakeLists.txt
-include src/*.pyx
-include src/CMakeLists.txt
-recursive-include src *.h *.cpp *.cc *.cxx
-recursive-include examples *
+[build-system]
+requires = [
+    "setuptools>=61",
+    "wheel",
+    "Cython>=0.29.36",
+    "cmake",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyrvo2"
+version = "1.0.0"
+description = "Python bindings for RVO2 library"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    { name = "Matthias Jarsch", email = "matthias.jarsch@student.kit.edu" },
+    { name = "Daniel Floegel", email = "floegel@fzi.de" },
+]
+classifiers = [
+    "Development Status :: Should work somehow...",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Information Technology",
+    "Operating System :: Linux",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Cython",
+    "Topic :: Games/Entertainment :: Simulation",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "Cython>=0.29.36",
+    "cmake",
+]
+
+[tool.setuptools]
+zip-safe = false
