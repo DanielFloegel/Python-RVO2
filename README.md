@@ -23,17 +23,17 @@ branch are supposed to be stable.
 Building & installing
 ----------------------
 Adressing the Deprecation Warning of pip:  Remove support for installed .egg distributions Issues: #12330
-Install python wheel package:
+Install python build dependencies:
 ```bash
-python -m pip install wheel
+python -m pip install --upgrade build wheel
 ```
 Build the package: This command will create a dist directory containing source distribution (sdist) and binary distribution
 ```bash
-python setup.py sdist bdist_wheel
+python -m build
 ```
 Install the package: Navigate to the directory with the dist folder.
 ```bash
-python -m pip install dist/pyrvo2-1.0.0-cp311-cp311-linux_x86_64.whl
+python -m pip install dist/pyrvo2-*.whl
 ```
 
 

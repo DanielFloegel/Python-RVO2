@@ -17,11 +17,14 @@ class BuildRvo2Ext(_build_ext):
         _build_ext.run(self)
 
 extensions = [
-    Extension('rvo2', ['src/*.pyx'],
-              include_dirs=['src'],
-              libraries=['RVO'],
-              library_dirs=['build/RVO2/src'],
-              extra_compile_args=['-fPIC']),
+    Extension(
+        "rvo2",
+        ["src/*.pyx"],
+        include_dirs=["src"],
+        libraries=["RVO"],
+        library_dirs=["build/RVO2/src"],
+        extra_compile_args=["-fPIC"],
+    ),
 ]
 
 setup(
@@ -33,8 +36,9 @@ setup(
     url="https://github.com/yourusername/yourpackage",
     author="Your Name",
     author_email="your.email@example.com",
-    ext_modules=cythonize(extensions),
+    ext_modules=cythonize(extensions, compiler_directives={"language_level": "3"}),
     cmdclass={'build_ext': BuildRvo2Ext},
+    python_requires=">=3.8",
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
