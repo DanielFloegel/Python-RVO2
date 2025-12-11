@@ -22,46 +22,16 @@ branch are supposed to be stable.
 
 Building & installing
 ----------------------
-Adressing the Deprecation Warning of pip:  Remove support for installed .egg distributions Issues: #12330
-Install python build dependencies:
+Install Cmake toolchain, if not yet available:
 ```bash
-python -m pip install --upgrade build wheel
+sudo apt-get install cmake build-essential
 ```
-Build the package: This command will create a dist directory containing source distribution (sdist) and binary distribution
+Build the package: This command will install all dependencies, build and install the package. 
 ```bash
-python -m build
-```
-Install the package: Navigate to the directory with the dist folder.
-```bash
-python -m pip install dist/pyrvo2-*.whl
+python3 -m pip install .
 ```
 
-
-Old Version:
-----------------------
-Use of the old_setup.py
-Building requires [CMake](http://cmake.org/) and [Cython](http://cython.org/) to be installed.
-Run `pip install -r requirements.txt` to install the tested version of Cython, or run
-`pip install Cython` to install the latest version.
-
-Run `python setup.py build` to build, and `python setup.py install` to install.
-Alternatively, if you want an in-place build that puts the compiled library right in
-the current directory, run `python setup.py build_ext --inplace`
-
-Only tested with Python 2.7, 3.4, and 3.6 on Ubuntu Linux. The setup.py script uses CMake to build
-the RVO2 library itself, before building the Python wrappers. If you have success (or failure)
-stories, please share them!
-
-To build on Mac OSX, give an `export MACOSX_DEPLOYMENT_TARGET=10.xx` command first, before
-running `python setup.py build`. Replace `10.xx` with your version of OSX, for example `10.11`.
-
-Differences with the C++ version
---------------------------------
-
-The `Vector2` and `Line` classes from the RVO2 library are _not_ wrapped. Instead,
-vectors are passed as tuples `(x, y)` from/to Python. Lines are passed as tuples
-`(point x, point y, direction x, direction y)`.
-
+If running into errors during installation delete `build/` and `dist/` and try again.
 
 Example code
 ------------
