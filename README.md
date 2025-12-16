@@ -1,3 +1,8 @@
+<div align="center">
+<a href="https://img.shields.io/badge/platform-linux-lightgrey"> <img src="https://img.shields.io/badge/platform-linux-lightgrey" alt="Platform"></a>
+<a href="https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue"> <img src="https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue" alt="Python Version"></a>
+</div>
+
 Python bindings for Optimal Reciprocal Collision Avoidance
 ==========================================================
 
@@ -26,12 +31,27 @@ Install Cmake toolchain, if not yet available:
 ```bash
 sudo apt-get install cmake build-essential
 ```
-Build the package: This command will install all dependencies, build and install the package. 
+Build the package: This command will install all dependencies, build and install the package.
 ```bash
 python3 -m pip install .
 ```
 
 If running into errors during installation delete `build/` and `dist/` and try again.
+
+Installation Issues
+----------------------
+The python RVO2 package relies on precompiled bindings - this requires Python.h files. If you encounter the installation issues like
+```
+...
+src/rvo2.cpp:48:10: fatal error: Python.h: No such file or directory
+48 | #include "Python.h"
+...
+```
+
+It is very likely that you have not the python developer package. To install this, run for your python version
+```
+sudo apt install python3.11-dev
+```
 
 Example code
 ------------
